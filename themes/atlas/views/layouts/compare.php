@@ -64,7 +64,7 @@ $cs = Yii::app()->clientScript;
         <?php echo getGA(); ?>
         <?php echo getJivo(); ?>
         <div class="wrapper">
-<!--            <div class="copyright">&copy;&nbsp;--><?php //echo CHtml::encode(Yii::app()->name) . ', ' . date('Y'); ?><!--</div>-->
+            <div class="copyright">&copy;&nbsp;<?php echo CHtml::encode(Yii::app()->name) . ', ' . date('Y'); ?></div>
         </div>
     </div>
 </div>

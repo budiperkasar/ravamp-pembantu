@@ -178,6 +178,6 @@
         </div>
     </div>
     <div class="wrapper" style="padding-top: 30px;">
-<!--        <div class="copyright">&copy;&nbsp;--><?php //echo CHtml::encode(Yii::app()->name) . ', ' . date('Y'); ?><!--</div>-->
+        <div class="copyright">&copy;&nbsp;<?php echo CHtml::encode(Yii::app()->name) . ', ' . date('Y'); ?></div>
     </div>
 </div>

@@ -188,7 +188,7 @@ $cs = Yii::app()->clientScript;
 
             <div id="footer-two-links">
                 <div class="wrapper">
-<!--                    <div class="copyright">&copy;&nbsp;--><?php //echo CHtml::encode(Yii::app()->name) . ', ' . date('Y'); ?>
+                    <div class="copyright">&copy;&nbsp;<?php echo CHtml::encode(Yii::app()->name) . ', ' . date('Y'); ?>
                         <br/>
                         <?php if (param('adminPhone') || param('adminEmail')) : ?>
                             <div class="tel">
