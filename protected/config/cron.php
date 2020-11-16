@@ -6,7 +6,7 @@ Yii::setPathOfAlias('webroot', $physicalPath);
 Yii::setPathOfAlias('webroot.uploads', $physicalPath . DIRECTORY_SEPARATOR . 'uploads');
 Yii::setPathOfAlias('webroot.uploads.objects', $physicalPath . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'objects');
 
-$baseHost = 'http://pembantu.test';
+$baseHost = '{{siteBaseUrl}}';
 $_SERVER['SERVER_NAME'] = $_SERVER['HTTP_HOST'] = $baseHost;
 
 $config = array(
