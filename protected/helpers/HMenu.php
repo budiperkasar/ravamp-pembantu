@@ -132,8 +132,10 @@ class HMenu
 
         if ($objectName)
         {
+            $getLabel = Yii::t('common', $label);
+            $separatorSign = '|';
             $controller->aData[$objectName][] = [
-                'label' => Yii::t('common', $label),
+                'label' => $label !== 'Site Map' && $label !== 'Logout' ? $getLabel . ' ' .$separatorSign : $getLabel,
                 'url' => $helperMenu->createUrl($url)
             ];
         }

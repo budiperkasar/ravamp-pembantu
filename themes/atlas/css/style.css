@@ -160,13 +160,12 @@ h5 {
 /* Logo ============================================================= */
 div.logo {
     float: left;
-    margin-left: 354px;
-    margin-top: 18px;
+    padding: 8px 0;
 }
 
 div.logo a {
     color: #acacac;
-    display: block;
+    /*display: block;*/
     position: relative;
     text-decoration: none;
     overflow: hidden;
@@ -248,7 +247,7 @@ div.logo-text {
 .line_menu li {
     background: none !important;
     float: left;
-    margin: 10px 21px 0 0;
+    margin: 10px 4px 0 0;
 }
 
 .switch-menu span {
@@ -357,7 +356,7 @@ div.logo-text {
 .bg {
     position: relative;
     margin: 0 auto;
-    width: 981px;
+    background: #fff;
 }
 
 .header img {

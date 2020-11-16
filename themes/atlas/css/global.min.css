@@ -7,8 +7,53 @@
 .c_grey {
     color: #D6DEE0 !important;
 }
-
+.c_white {
+    color: #fff !important;
+}
 .font-38 {
     font-size: 38px!important;
 }
 
+div.logo {
+    float: left;
+    padding: 8px 0 !important;
+    margin: 0 !important;
+}
+
+.listing {
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    float: right;
+    color: #FFF;
+}
+
+.listing-add {
+    background-color: #74A442;
+    padding: 4px 15px;
+    margin: 13px 0 0 0;
+}
+
+.listing-count {
+    background-color: #289B66;
+    padding: 4px 14px;
+    margin: 13px 4px 0 0;
+}
+
+.listing-count .no {
+    font-size: 30px;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    line-height: 38px;
+    display: block;
+}
+
+div.logo a {
+    display: inline !important;
+}
+
+.line_menu li {
+    margin: 10px 10px 0 0 !important;
+}
