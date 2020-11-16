@@ -74,8 +74,17 @@ class HMenu
                 'class' => 'sub_menu_dropdown'
             ),
         );
+        $helperMenu = new HMenu();
+        $isGuest = Yii::app()->user->isGuest;
+        $loginUrl = $helperMenu->getUrlTranslatedScopeModule('loginUrl', 'configuration', true);
+        $logoutUrl = $helperMenu->getUrlTranslatedScopeModule('logoutUrl', 'configuration', true);
+        $registerUrl = $helperMenu->getUrlTranslatedScopeModule('registerUrl', 'configuration', true);
+        $siteMapUrl = $helperMenu->getUrlTranslatedScopeModule('siteMapUrl', 'configuration', true);
+        $yourOrder = $helperMenu->getUrlTranslatedScopeModule('yourOrderUrl', 'configuration', true);
+        $loginWord = $isGuest ? 'Login' : 'Logout';
+        $loginUrl = $isGuest ? $loginUrl : $logoutUrl;
 
-        if (!Yii::app()->user->isGuest) {
+        if (!$isGuest) {
             $user = HUser::getModel();
 
             $controller->aData['userCpanelItems'][] = array(
@@ -93,5 +102,53 @@ class HMenu
         }
 
         $controller->aData['topMenuItems'] = $controller->infoPages;
+
+        $helperMenu->setControllerData('leftTopBarMenuItems', $loginWord, $loginUrl);
+
+        if ($isGuest) $helperMenu->setControllerData('leftTopBarMenuItems', 'Join Now', $registerUrl);
+
+        $helperMenu->setControllerData('rightTopBarMenuItems', 'Agency Login', $loginUrl);
+
+        $helperMenu->setControllerData('rightTopBarMenuItems', 'Agency Register', $registerUrl);
+
+        $helperMenu->setControllerData('rightTopBarMenuItems', 'Your Order', $yourOrder);
+
+        $helperMenu->setControllerData('rightTopBarMenuItems', 'Site Map', $siteMapUrl);
+
+    }
+
+    protected function createUrl($url)
+    {
+        if ($url)
+        {
+            return Yii::app()->createUrl($url);
+        }
+    }
+
+    protected function setControllerData($objectName, $label, $url)
+    {
+        $controller = Yii::app()->controller;
+        $helperMenu = new HMenu();
+
+        if ($objectName)
+        {
+            $controller->aData[$objectName][] = [
+                'label' => Yii::t('common', $label),
+                'url' => $helperMenu->createUrl($url)
+            ];
+        }
+    }
+
+    protected function getUrlTranslatedScopeModule($word, $moduleName, $convertToUrl = false)
+    {
+        $helperMenu = new HMenu();
+        $data = tt($word,$moduleName);
+
+        if ($convertToUrl === true)
+        {
+            return $helperMenu->createUrl($data);
+        }
+
+        return $data;
     }
 }

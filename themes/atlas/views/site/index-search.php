@@ -8,7 +8,7 @@
 
             <div class="index-search-button-line">
                 <a href="javascript: void(0);" id="more-options-link"><?php echo tc('More options'); ?></a>
-                <a href="javascript: void(0);" onclick="doSearchAction();" id="btnleft"
+                <a href="javascript: void(0);" onclick="doSearchAction();" id="btnleft new"
                    class="index-btnsrch link_blue"><?php echo tc('Search'); ?></a>
             </div>
         </div>
