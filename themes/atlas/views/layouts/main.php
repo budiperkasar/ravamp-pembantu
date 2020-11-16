@@ -27,6 +27,10 @@ $cs = Yii::app()->clientScript;
     }
     ?>
 
+    <link rel="stylesheet" type="text/css" href="<?= Yii::app()->theme->baseUrl ?>/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<?= Yii::app()->theme->baseUrl ?>/css/all.css">
+    <link rel="stylesheet" type="text/css" href="<?= Yii::app()->theme->baseUrl ?>/css/global.min.css" />
+
     <!--[if lt IE 9]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/ie.css">
@@ -68,20 +72,44 @@ $cs = Yii::app()->clientScript;
         </div>
     <?php } ?>
 
-    <div class="line_header">
+    <div class="line_header b_black c_grey">
         <div class="main_header">
             <div class="left">
+
                 <nav class="switch-menu">
                     <span><span class="image-menu"></span><?php echo tc('Menu'); ?></span>
-
-                    <?php
-                    $this->widget('zii.widgets.CMenu', array(
-                        'id' => 'nav',
-                        'items' => $this->aData['userCpanelItems'],
-                        'htmlOptions' => array('class' => 'sf-menu line_menu hide-780 dropDownNav'),
-                    ));
-                    ?>
+                    <ul class="line_menu">
+                        <li class="depth_zero"><?= $this->welcomeSite ?></li>
+                        <?php
+                        $menuItems = $this->aData['leftTopBarMenuItems'];
+                        foreach ($menuItems as $menuItem)
+                        {
+                            ?>
+                            <li class="depth_zero">
+                                | <a href="<?= $menuItem['url'] ?>"><?= $menuItem['label'] ?></a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
                 </nav>
+            </div>
+
+            <div class="right">
+                <ul class="line_menu">
+                    <?php
+                    $menuItems = $this->aData['rightTopBarMenuItems'];
+
+                    foreach ($menuItems as $menuItem)
+                    {
+                        ?>
+                        <li class="depth_zero">
+                            <a href="<?= $menuItem['url'] ?>"><?= $menuItem['label'] ?></a>
+                        </li>
+                        <?php
+                    }
+                    ?>
+                </ul>
             </div>
 
             <?php if (!isFree()): ?>
@@ -122,15 +150,42 @@ $cs = Yii::app()->clientScript;
         <!-- header -->
         <div class="body_background"></div>
         <div class="header">
-            <div class="logo">
-                <a title="<?php echo Yii::t('common', 'Go to main page'); ?>"
-                   href="<?php echo Yii::app()->controller->createAbsoluteUrl('/'); ?>">
-                    <div class="logo-img"><img width="77" height="70" alt=""
-                                               src="<?php echo Yii::app()->theme->baseUrl; ?>/images/pages/logo-open-ore.png"/>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="logo">
+                            <a title="<?php echo Yii::t('common', 'Go to main page'); ?>"
+                               href="<?php echo Yii::app()->controller->createAbsoluteUrl('/'); ?>">
+                                <div class="logo-img">
+                                    <img width="77" height="70" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/pages/logo-site.png"/>
+                                </div>
+                                <div class="logo-text"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="logo-text"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-                </a>
+                    <div class="col-md-5">
+                        <span class="listing-add">
+                            <a href="<?= $this->aData['siteSettings']['addListUrl'] ?>">
+                              <i class="fas fa-plus font-38"></i>
+                            <br>
+                            </a>
+                        </span>
+                        <span class="listing-count">
+                            <?php
+//                            $data = $this->aData['siteSettings'];
+//                            $data = $this->welcomeSite;
+//                            var_dump($data);
+//                            die();
+                            ?>
+                            <span class="no"><?= $this->aData['siteProperties']['totalListing'] ?></span>
+                            <?= $this->aData['siteProperties']['listingLabel'] ?>
+                        </span>
+                    </div>
+                </div>
             </div>
+
+
         </div>
 
         <div class="menu">
@@ -322,13 +377,13 @@ $cs = Yii::app()->clientScript;
 		', CClientScript::POS_READY);
             ?>
 
-            <div class="admin-menu-small <?php echo demo() ? 'admin-menu-small-demo' : ''; ?> ">
-                <a href="<?php echo (Yii::app()->user->checkAccess('stats_admin') === true) ? Yii::app()->baseUrl . '/stats/backend/main/admin' : Yii::app()->baseUrl . '/apartments/backend/main/admin' ?>">
-                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/adminmenu/administrator.png"
-                         alt="<?php echo Yii::t('common', 'Administration'); ?>"
-                         title="<?php echo Yii::t('common', 'Administration'); ?>" class="adminMainNavItem"/>
-                </a>
-            </div>
+<!--            <div class="admin-menu-small --><?php //echo demo() ? 'admin-menu-small-demo' : ''; ?><!-- ">-->
+<!--                <a href="--><?php //echo (Yii::app()->user->checkAccess('stats_admin') === true) ? Yii::app()->baseUrl . '/stats/backend/main/admin' : Yii::app()->baseUrl . '/apartments/backend/main/admin' ?><!--">-->
+<!--                    <img src="--><?php //echo Yii::app()->theme->baseUrl; ?><!--/images/adminmenu/administrator.png"-->
+<!--                         alt="--><?php //echo Yii::t('common', 'Administration'); ?><!--"-->
+<!--                         title="--><?php //echo Yii::t('common', 'Administration'); ?><!--" class="adminMainNavItem"/>-->
+<!--                </a>-->
+<!--            </div>-->
         <?php } ?>
 
         <?php
