@@ -158,26 +158,20 @@ $cs = Yii::app()->clientScript;
                             <a title="<?php echo Yii::t('common', 'Go to main page'); ?>"
                                href="<?php echo Yii::app()->controller->createAbsoluteUrl('/'); ?>">
                                 <div class="logo-img">
-                                    <img width="77" height="70" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/pages/logo-site.png"/>
+                                    <img alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/pages/logo-site.png"/>
                                 </div>
-                                <div class="logo-text"><?php echo CHtml::encode(Yii::app()->name); ?></div>
                             </a>
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <span class="listing-add">
-                            <a href="<?= $this->aData['siteSettings']['addListUrl'] ?>">
+                        <span class="listing listing-add">
+                            <a class="c_white" href="<?= $this->aData['siteSettings']['addListUrl'] ?>">
                               <i class="fas fa-plus font-38"></i>
                             <br>
+                                <?= $this->aData['siteProperties']['addWorkerLabel']?>
                             </a>
                         </span>
-                        <span class="listing-count">
-                            <?php
-//                            $data = $this->aData['siteSettings'];
-//                            $data = $this->welcomeSite;
-//                            var_dump($data);
-//                            die();
-                            ?>
+                        <span class="listing listing-count">
                             <span class="no"><?= $this->aData['siteProperties']['totalListing'] ?></span>
                             <?= $this->aData['siteProperties']['listingLabel'] ?>
                         </span>

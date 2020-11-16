@@ -519,9 +519,10 @@ class HSite
         $apCount = Apartment::model()->count($criteria);
 
         $controller->aData['siteProperties'] = [
+            'appId' => $appId,
             'totalListing' => $apCount,
-            'listingLabel' => Yii::t('common', 'Pekerja'),
-            'appId' => $appId
+            'listingLabel' => Yii::t('common', 'Workers'),
+            'addWorkerLabel' => Yii::t('common', 'Add Worker')
         ];
 
         $siteName = $controller->siteName;
@@ -538,8 +539,6 @@ class HSite
         }
         $controller->aData['siteSettings'] = [
             'addListUrl' => $addListUrl,
-            'welcome' => Yii::t('common', 'Selamat Datang Di ') . $siteName,
-
         ];
     }
 
