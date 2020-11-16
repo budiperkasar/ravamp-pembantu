@@ -86,7 +86,7 @@ $cs = Yii::app()->clientScript;
                         {
                             ?>
                             <li class="depth_zero">
-                                | <a href="<?= $menuItem['url'] ?>"><?= $menuItem['label'] ?></a>
+                                <a href="<?= $menuItem['url'] ?>"><?= $menuItem['label'] ?></a>
                             </li>
                             <?php
                         }

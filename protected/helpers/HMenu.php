@@ -135,10 +135,22 @@ class HMenu
             $getLabel = Yii::t('common', $label);
             $separatorSign = '|';
             $controller->aData[$objectName][] = [
-                'label' => $label !== 'Site Map' && $label !== 'Logout' ? $getLabel . ' ' .$separatorSign : $getLabel,
+//                'label' => $label !== 'Site Map' && $label !== 'Logout' ? $getLabel . ' ' .$separatorSign : $getLabel,
+            'label' => $helperMenu->getLabel($label),
                 'url' => $helperMenu->createUrl($url)
             ];
         }
+    }
+
+    protected function getLabel($word)
+    {
+        $lastWords = ['Site Map', 'Logout', 'Join Now'];
+        $separatorSign = '|';
+        $getLabel = Yii::t('common', $word);
+
+        $data = in_array($word, $lastWords) ? $getLabel : $getLabel . ' ' . $separatorSign;
+
+        return $data;
     }
 
     protected function getUrlTranslatedScopeModule($word, $moduleName, $convertToUrl = false)
