@@ -85,9 +85,6 @@ class Controller extends CController
     public $privatePolicyPage;
     public $useAdditionalView;
     public $countNewsProduct = 0;
-    public $siteName;
-    public $welcomeSite;
-
 
     protected function beforeAction($action)
     {
@@ -158,7 +155,7 @@ class Controller extends CController
 
         Yii::app()->user->setState('menu_active', '');
 
-        $this->pageTitle = tt('siteTitle', 'seo');
+        $this->pageTitle = tt('siteName', 'seo');
         $this->pageKeywords = tt('siteKeywords', 'seo');
         $this->pageDescription = tt('siteDescription', 'seo');
 
@@ -179,12 +176,9 @@ class Controller extends CController
 
         $this->baseUrl = Yii::app()->baseUrl;
         $this->baseThemeUrl = Yii::app()->theme->baseUrl;
-        $this->siteName = tt('siteName', 'seo');
-        $this->welcomeSite = Yii::t('common', 'Selamat Datang di ') . $this->siteName;
 
         if (in_array(Yii::app()->theme->name, array(Themes::THEME_ATLAS_NAME))) {
             HMenu::setMenuData();
-            HSite::setSiteData();
         }
 
         // comparison list
