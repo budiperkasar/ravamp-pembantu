@@ -1,12 +1,26 @@
+/* Overide Bootstrap */
+
+@media (min-width: 1200px) {
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+        max-width: 1024px !important;
+    }
+}
+
 .user-link {
     margin: 6px 0 0 0;
 }
+
+.t_underline {
+    text-decoration: underline;
+}
+
 .b_black {
     background: #414849 !important;
 }
 .c_grey {
     color: #D6DEE0 !important;
 }
+
 .c_white {
     color: #fff !important;
 }
@@ -55,5 +69,16 @@ div.logo a {
 }
 
 .line_menu li {
-    margin: 10px 10px 0 0 !important;
+    margin: 10px 3px 0 0 !important;
+}
+.line_menu li a {
+    color: #D6DEE0 !important;
+}
+
+.line_menu li a:hover, .line_menu li.active a {
+    background: none !important;
+}
+
+.line_menu, .languages {
+    margin: 0px !important;
 }

@@ -180,7 +180,8 @@ class Controller extends CController
         $this->baseUrl = Yii::app()->baseUrl;
         $this->baseThemeUrl = Yii::app()->theme->baseUrl;
         $this->siteName = tt('siteName', 'seo');
-        $this->welcomeSite = Yii::t('common', 'Selamat Datang di ') . $this->siteName;
+//        $this->welcomeSite = Yii::t('common', 'Selamat Datang di ') . $this->siteName;
+        $this->welcomeSite = $this->getWelcomeSite();
 
         if (in_array(Yii::app()->theme->name, array(Themes::THEME_ATLAS_NAME))) {
             HMenu::setMenuData();
@@ -258,6 +259,34 @@ class Controller extends CController
         }
 
         parent::init();
+    }
+
+    protected function getUserObj()
+    {
+        $user = HUser::getModel();
+        $isGuest = Yii::app()->user->isGuest;
+        $userObj = [];
+
+        if (!$isGuest) {
+            $userObj = [
+                'username' => $user->username
+            ];
+        }
+
+        return $userObj;
+    }
+
+    protected function getWelcomeSite()
+    {
+        $user = HUser::getModel();
+        $isGuest = Yii::app()->user->isGuest;
+        $welcomeWord = Yii::t('common', 'Welcome') . ' ';
+        $toWord = Yii::t('common', 'to') . ' ';
+        $separator = '|';
+
+        $words = $isGuest ? $welcomeWord . $toWord . $this->siteName : $welcomeWord . $user->username;
+
+        return $words . ' ' . $separator;
     }
 
     public static function disableProfiler()

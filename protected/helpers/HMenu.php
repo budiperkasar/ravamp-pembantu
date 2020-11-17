@@ -74,17 +74,20 @@ class HMenu
                 'class' => 'sub_menu_dropdown'
             ),
         );
+
         $helperMenu = new HMenu();
         $isGuest = Yii::app()->user->isGuest;
         $loginUrl = $helperMenu->getUrlTranslatedScopeModule('loginUrl', 'configuration', true);
         $logoutUrl = $helperMenu->getUrlTranslatedScopeModule('logoutUrl', 'configuration', true);
         $registerUrl = $helperMenu->getUrlTranslatedScopeModule('registerUrl', 'configuration', true);
         $siteMapUrl = $helperMenu->getUrlTranslatedScopeModule('siteMapUrl', 'configuration', true);
-        $yourOrder = $helperMenu->getUrlTranslatedScopeModule('yourOrderUrl', 'configuration', true);
+        $yourOrderUrl = $helperMenu->getUrlTranslatedScopeModule('yourOrderUrl', 'configuration', true);
         $loginWord = $isGuest ? 'Login' : 'Logout';
         $loginUrl = $isGuest ? $loginUrl : $logoutUrl;
+        $helperMenu->setControllerData('leftTopBarMenuItems', $loginWord, $loginUrl);
 
-        if (!$isGuest) {
+        if (!$isGuest)
+        {
             $user = HUser::getModel();
 
             $controller->aData['userCpanelItems'][] = array(
@@ -99,23 +102,29 @@ class HMenu
                 'url' => array('/site/logout'),
                 'itemOptions' => array('class' => 'depth_zero'),
             );
+
+            $helperMenu->setControllerData('rightTopBarMenuItems', 'My Account', 'usercpanel');
+
+            $helperMenu->setControllerData('rightTopBarMenuItems', 'My Favorite List', 'usercpanel');
+
+        } else {
+            $helperMenu->setControllerData('leftTopBarMenuItems', 'Join Now', $registerUrl);
+
+            $helperMenu->setControllerData('rightTopBarMenuItems', 'Agency Login', $loginUrl);
+
+            $helperMenu->setControllerData('rightTopBarMenuItems', 'Agency Register', $registerUrl);
+
         }
 
         $controller->aData['topMenuItems'] = $controller->infoPages;
 
-        $helperMenu->setControllerData('leftTopBarMenuItems', $loginWord, $loginUrl);
 
-        if ($isGuest) $helperMenu->setControllerData('leftTopBarMenuItems', 'Join Now', $registerUrl);
-
-        $helperMenu->setControllerData('rightTopBarMenuItems', 'Agency Login', $loginUrl);
-
-        $helperMenu->setControllerData('rightTopBarMenuItems', 'Agency Register', $registerUrl);
-
-        $helperMenu->setControllerData('rightTopBarMenuItems', 'Your Order', $yourOrder);
+        $helperMenu->setControllerData('rightTopBarMenuItems', 'Order', $yourOrderUrl);
 
         $helperMenu->setControllerData('rightTopBarMenuItems', 'Site Map', $siteMapUrl);
 
     }
+
 
     protected function createUrl($url)
     {
@@ -148,9 +157,8 @@ class HMenu
         $separatorSign = '|';
         $getLabel = Yii::t('common', $word);
 
-        $data = in_array($word, $lastWords) ? $getLabel : $getLabel . ' ' . $separatorSign;
+        return in_array($word, $lastWords) ? $getLabel : $getLabel . ' ' . $separatorSign;
 
-        return $data;
     }
 
     protected function getUrlTranslatedScopeModule($word, $moduleName, $convertToUrl = false)
