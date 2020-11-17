@@ -186,7 +186,7 @@ $cs = Yii::app()->clientScript;
 
         </div>
 
-        <div class="menu">
+        <div class="menu b_green">
             <div id="mobnav-btn"><span class="image-menu"></span><?php echo tc('Menu'); ?></div>
             <?php
             $this->widget('ResponsiveMainCMenu', array(

@@ -117,8 +117,7 @@ class HMenu
         }
 
         $controller->aData['topMenuItems'] = $controller->infoPages;
-
-
+        
         $helperMenu->setControllerData('rightTopBarMenuItems', 'Order', $yourOrderUrl);
 
         $helperMenu->setControllerData('rightTopBarMenuItems', 'Site Map', $siteMapUrl);
