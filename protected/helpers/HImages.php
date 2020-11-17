@@ -26,7 +26,7 @@ class HImages
         }
 
         $key = 0;
-
+        $homepageBannerImg = tt('homepageBannerImg', 'configuration');
         if (issetModule('slider')) {
             $imagesSlider = Slider::model()->getActiveImages();
 
@@ -53,16 +53,22 @@ class HImages
                 }
             }
         } else {
-            for ($i = 1; $i <= 3; $i++) {
+//            for ($i = 1; $i <= 3; $i++) {
+//
+//                $sliderImgs[$key]['url'] = '';
+//                $sliderImgs[$key]['title'] = '';
+//                $sliderImgs[$key]['src'] = Yii::app()->theme->baseUrl . '/images/slider/' . $i . '.jpg';
+//                $sliderImgs[$key]['width'] = $width;
+//                $sliderImgs[$key]['height'] = $height;
+//
+//                $key++;
+//            }
 
-                $sliderImgs[$key]['url'] = '';
-                $sliderImgs[$key]['title'] = '';
-                $sliderImgs[$key]['src'] = Yii::app()->theme->baseUrl . '/images/slider/' . $i . '.jpg';
-                $sliderImgs[$key]['width'] = $width;
-                $sliderImgs[$key]['height'] = $height;
-
-                $key++;
-            }
+            $sliderImgs[$key]['url'] = '';
+            $sliderImgs[$key]['title'] = '';
+            $sliderImgs[$key]['src'] = Yii::app()->theme->baseUrl . '/images/slider/' . $homepageBannerImg;
+            $sliderImgs[$key]['width'] = $width;
+            $sliderImgs[$key]['height'] = $height;
         }
 
         $fullImgsSliderArr = CMap::mergeArray($paidImgs, $sliderImgs);
