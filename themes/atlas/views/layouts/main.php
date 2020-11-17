@@ -104,7 +104,7 @@ $cs = Yii::app()->clientScript;
                         {
                             ?>
                             <li class="depth_zero">
-                                <a href="<?= $menuItem['url'] ?>"><?= $menuItem['label'] ?></a>
+                                <a href="<?= $menuItem['url'] ?>"><?= CHtml::encode($menuItem['label']) ?></a>
                             </li>
                             <?php
                         }
@@ -150,7 +150,7 @@ $cs = Yii::app()->clientScript;
     </div>
     <div class="body_background"></div>
 
-    <div class="bg">
+    <div main-content-wrapper>
         <!-- header -->
         <div class="body_background"></div>
         <div class="header">
