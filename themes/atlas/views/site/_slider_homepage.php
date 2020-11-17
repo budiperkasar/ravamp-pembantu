@@ -86,7 +86,7 @@ $sliderClass = ($useFullWidthSlider) ? 'slider-with-search-form' : 'slider-witho
 
     <?php if ($useFullWidthSlider): ?>
         <div class="index-page-search-form">
-            <?php Yii::app()->controller->renderPartial('//site/inner-search', array('showHideFilter' => false)); ?>
+            <?php Yii::app()->controller->renderPartial('//site/cta-banner-overlay') ?>
         </div>
     <?php endif; ?>
 </div>

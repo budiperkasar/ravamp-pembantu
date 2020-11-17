@@ -91,7 +91,9 @@ div.logo a {
 .line_menu, .languages {
     margin: 0px !important;
 }
-
+.header {
+    height: 85px !important;
+}
 .menu .header_menu {
     padding: 18px 0 !important;
 }
@@ -108,4 +110,35 @@ div.logo a {
 
 .menu .header_menu li a:hover, .menu .header_menu li.active a, .menu .header_menu .sfHover>a {
     background: none !important;
+}
+
+.slider-with-search-form {
+    margin: 0 auto !important;
+}
+
+.cta-overlay {
+    background-color: rgba(255,255,255,.7);
+    border: 1px solid #fff;
+    display: inline-block;
+    padding: 10px;
+    float: left;
+    text-align: left;
+    text-transform: none;
+    font-weight: bold;
+    color: #333;
+}
+
+.cta-overlay > h1 {
+    font-size: 22px;
+    color: #238b5c;
+    letter-spacing: 0;
+}
+
+.cta-overlay > p {
+    font-size: 22px;
+    font-weight: 100;
+}
+
+.index-page-search-form {
+    bottom: 20% !important;
 }
