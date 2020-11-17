@@ -74,14 +74,32 @@ $cs = Yii::app()->clientScript;
 
     <div class="line_header b_black c_grey">
         <div class="main_header">
-            <div class="left">
+            <div class="row">
+                <div class="col-md-4">
+                    <nav class="switch-menu left">
+                        <span><span class="image-menu"></span><?php echo tc('Menu'); ?></span>
+                        <ul class="line_menu">
+                            <li class="depth_zero"><?= $this->welcomeSite ?></li>
+                            <?php
+                            $menuItems = $this->aData['leftTopBarMenuItems'];
+                            foreach ($menuItems as $menuItem)
+                            {
+                                ?>
+                                <li class="depth_zero">
+                                    <a href="<?= $menuItem['url'] ?>"><?= $menuItem['label'] ?></a>
+                                </li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
+                    </nav>
+                </div>
 
-                <nav class="switch-menu">
-                    <span><span class="image-menu"></span><?php echo tc('Menu'); ?></span>
-                    <ul class="line_menu">
-                        <li class="depth_zero"><?= $this->welcomeSite ?></li>
+                <div class="col-md-8">
+                    <ul class="line_menu right">
                         <?php
-                        $menuItems = $this->aData['leftTopBarMenuItems'];
+                        $menuItems = $this->aData['rightTopBarMenuItems'];
+
                         foreach ($menuItems as $menuItem)
                         {
                             ?>
@@ -92,25 +110,11 @@ $cs = Yii::app()->clientScript;
                         }
                         ?>
                     </ul>
-                </nav>
+                </div>
+
             </div>
 
-            <div class="right">
-                <ul class="line_menu">
-                    <?php
-                    $menuItems = $this->aData['rightTopBarMenuItems'];
 
-                    foreach ($menuItems as $menuItem)
-                    {
-                        ?>
-                        <li class="depth_zero">
-                            <a href="<?= $menuItem['url'] ?>"><?= $menuItem['label'] ?></a>
-                        </li>
-                        <?php
-                    }
-                    ?>
-                </ul>
-            </div>
 
             <?php if (!isFree()): ?>
                 <div class="right">

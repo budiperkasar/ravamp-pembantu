@@ -24,7 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f8d724d0-3562-4f3e-bbbe-1c0f7b97c989" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/components/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/components/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protected/helpers/HMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/helpers/HMenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/helpers/HSite.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/helpers/HSite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/atlas/css/global.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/css/global.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/atlas/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/views/layouts/main.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605427850279</updated>
-      <workItem from="1605427851537" duration="43311000" />
+      <workItem from="1605427851537" duration="51419000" />
     </task>
     <servers />
   </component>
@@ -89,10 +92,10 @@
       <screen x="0" y="23" width="1440" height="819" />
     </state>
     <state x="360" y="201" key="MultipleFileMergeDialog/0.23.1440.819@0.23.1440.819" timestamp="1605427961606" />
-    <state x="421" y="187" width="598" height="490" key="find.popup" timestamp="1605539899847">
+    <state x="421" y="187" width="598" height="490" key="find.popup" timestamp="1605580374514">
       <screen x="0" y="23" width="1440" height="819" />
     </state>
-    <state x="421" y="187" width="598" height="490" key="find.popup/0.23.1440.819@0.23.1440.819" timestamp="1605539899847" />
+    <state x="421" y="187" width="598" height="490" key="find.popup/0.23.1440.819@0.23.1440.819" timestamp="1605580374514" />
     <state x="421" y="286" key="git4idea.ui.GitUnstashDialog" timestamp="1605427961774">
       <screen x="0" y="23" width="1440" height="819" />
     </state>

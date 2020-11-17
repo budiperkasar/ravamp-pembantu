@@ -530,16 +530,23 @@ class HSite
         $addListUrl = $loginUrl;
         $userUserName = '';
 
-        if (!Yii::app()->user->isGuest)
-        {
-            $userObj = HUser::getModel();
-            $userUserName = $userObj->username;
-            $addListUrl = Yii::app()->createUrl('/apartments/backend/main/create');
 
-        }
+        $helperSite = new HSite();
         $controller->aData['siteSettings'] = [
-            'addListUrl' => $addListUrl,
+            'addListUrl' => $helperSite->getAddListingUrl(),
         ];
+    }
+
+    protected function createUrl($url)
+    {
+        return Yii::app()->createUrl($url);
+    }
+
+    public function getAddListingUrl()
+    {
+        $isGuest = Yii::app()->user->isGuest;
+        return $isGuest ? $this->createUrl('/site/login') : $this->createUrl('/userlistings/create');
+
     }
 
     public static function getSiteName()
