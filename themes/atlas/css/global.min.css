@@ -17,6 +17,15 @@
 .b_black {
     background: #414849 !important;
 }
+
+.b_green {
+    background: #238b5c !important;
+}
+
+.c_green {
+  color: 238b5c !important;
+}
+
 .c_grey {
     color: #D6DEE0 !important;
 }
@@ -81,4 +90,22 @@ div.logo a {
 
 .line_menu, .languages {
     margin: 0px !important;
+}
+
+.menu .header_menu {
+    padding: 18px 0 !important;
+}
+
+.menu .header_menu li {
+    background: none !important;
+    padding-left: 0 !important;
+}
+
+.menu .header_menu li a {
+    color: #fff !important;
+    border-left: 1px solid #1d6d49;
+}
+
+.menu .header_menu li a:hover, .menu .header_menu li.active a, .menu .header_menu .sfHover>a {
+    background: none !important;
 }

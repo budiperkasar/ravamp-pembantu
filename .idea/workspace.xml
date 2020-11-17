@@ -24,9 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f8d724d0-3562-4f3e-bbbe-1c0f7b97c989" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/components/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/components/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protected/helpers/HMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/helpers/HMenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/helpers/HSite.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/helpers/HSite.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/atlas/css/global.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/css/global.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/atlas/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/views/layouts/main.php" afterDir="false" />
     </list>
@@ -68,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605427850279</updated>
-      <workItem from="1605427851537" duration="51419000" />
+      <workItem from="1605427851537" duration="54032000" />
     </task>
     <servers />
   </component>
