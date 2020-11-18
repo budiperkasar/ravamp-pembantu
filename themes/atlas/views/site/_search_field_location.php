@@ -85,7 +85,7 @@ if (issetModule('metroStations')) {
                 isset($this->selectedCity) ? $this->selectedCity : '',
                 $cityArray,
                 array(
-                    'class' => $fieldClass . ' width289 searchField' . $opacityClass,
+                    'class' => $fieldClass . 'searchField' . $opacityClass,
                     'onchange' => '$("#city").removeClass("less-opacity-control");',
                     'ajax' => array(
                         'type' => 'GET',
@@ -122,7 +122,7 @@ if (issetModule('metroStations')) {
         <div class="<?php echo $controlClass; ?> <?php echo $opacityClass; ?>">
             <?php
             echo CHtml::dropDownList('metro[]', isset($this->selectedMetroStations) ? $this->selectedMetroStations : '', $metros,
-                array('id' => 'metro', 'class' => $fieldClass . ' width289 searchField', 'multiple' => 'multiple')
+                array('id' => 'metro', 'class' => $fieldClass . ' searchField', 'multiple' => 'multiple')
             );
             echo "<script>$('#metro').SumoSelect({captionFormat: '" . tc('{0} Selected') . "', selectAlltext: '" . tc('check all') . "', csvDispCount:1, placeholder: '" . tt('Select metro stations', 'metroStations') . "', filter: true, filterText: '" . tc('enter initial letters') . "'});</script>";
             ?>
@@ -131,7 +131,7 @@ if (issetModule('metroStations')) {
 <?php } else { ?>
     <div class="<?php echo $divClass; ?>">
         <?php if ($this->searchShowLabel) { ?>
-            <div class="<?php echo $textClass; ?>"><?php echo Yii::t('common', 'City') ?>:</div>
+            <label class="<?php echo $textClass; ?>"><?php echo Yii::t('common', 'City') ?>:</label>
         <?php } ?>
         <div class="<?php echo $controlClass; ?>">
             <?php
@@ -140,7 +140,7 @@ if (issetModule('metroStations')) {
                 isset($this->selectedCity) ? $this->selectedCity : '',
                 $cityArray,
                 array(
-                    'class' => $fieldClass . ' width289 searchField',
+                    'class' => $fieldClass . ' location searchField',
                 )
             );
             ?>

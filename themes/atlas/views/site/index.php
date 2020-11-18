@@ -6,7 +6,10 @@
 <?php endif; ?>
 
 <?php if (isset($page) && $page): ?>
-    <div class="search">
+    <div class="block-search">
+        <i class="fas fa-search font-26 search"></i>
+        <h2 class="margin-0">Portal Pembantu Terbesar dan No. 1 di Indonesia</h2>
+        <hr>
         <?php Yii::app()->controller->renderPartial('//site/inner-search', array('showHideFilter' => false)); ?>
     </div>
 <?php endif; ?>

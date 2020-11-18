@@ -2303,10 +2303,6 @@ a#more-options-link-inner, a#more-options-link-inner :hover, a#more-options-link
     padding-top: 10px;
 }
 
-#search_form {
-    color: #FFFFFF !important;
-}
-
 .search-term {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #DDDDDD;

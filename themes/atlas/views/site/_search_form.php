@@ -7,7 +7,7 @@ $searchFields = SearchFormModel::getFields($isInner, $objType);
 $i = 1;
 foreach ($searchFields as $search) {
     if ($isInner) {
-        $divClass = 'search_inner_row';
+        $divClass = 'col-md-4 form-group d-inline-block';
     } else {
         $divClass = 'header-form-line';
     }
@@ -17,7 +17,7 @@ foreach ($searchFields as $search) {
             'divClass' => $divClass,
             'textClass' => 'formalabel',
             'controlClass' => 'formacontrol',
-            'fieldClass' => 'width290 search-input-new',
+            'fieldClass' => 'search-input-new form-control',
             'minWidth' => '290',
             'isInner' => $isInner,
         ));

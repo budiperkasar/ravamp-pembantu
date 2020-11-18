@@ -51,7 +51,7 @@ class Controller extends CController
     public $baseThemeUrl;
     public $showSearchForm = true;
     public $htmlPageId = 'inner';
-    public $searchShowLabel = false;
+    public $searchShowLabel = true;
 
     #### start for search
     public $selectedCountry;
