@@ -1,6 +1,6 @@
 <?php
 $cityArray = (issetModule('location')) ? (City::getCitiesArray((isset($this->selectedRegion) ? $this->selectedRegion : 0), 0)) : $this->cityActive;
-$cityArray = CArray::merge(array(0 => tc('select city')), $cityArray);
+$cityArray = CArray::merge(array(0 => tc('All')), $cityArray);
 $metros = array();
 # для того, чтобы не было пустого select если в выбранном регионе нет объявлений
 $onlyWithAds = (issetModule('geo') && (param('geo_in_search') > 0)) ? 0 : 1;
@@ -9,7 +9,7 @@ $onlyWithAds = (issetModule('geo') && (param('geo_in_search') > 0)) ? 0 : 1;
 <?php if (issetModule('location')) : ?>
     <div class="<?php echo $divClass; ?>">
         <?php if ($this->searchShowLabel) { ?>
-            <div class="<?php echo $textClass; ?>"><?php echo tc('Country') ?>:</div>
+            <div class="<?php echo $textClass; ?>"><?php echo tc('Your Country') ?>:</div>
         <?php } ?>
         <div class="<?php echo $controlClass; ?>">
             <?php
@@ -131,7 +131,7 @@ if (issetModule('metroStations')) {
 <?php } else { ?>
     <div class="<?php echo $divClass; ?>">
         <?php if ($this->searchShowLabel) { ?>
-            <label class="<?php echo $textClass; ?>"><?php echo Yii::t('common', 'City') ?>:</label>
+            <label class="<?php echo $textClass; ?>"><?php echo Yii::t('common', 'Your City') ?>:</label>
         <?php } ?>
         <div class="<?php echo $controlClass; ?>">
             <?php
