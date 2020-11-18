@@ -5,13 +5,14 @@ $objType = isset($this->objType) ? $this->objType : 0;
 $searchFields = SearchFormModel::getFields($isInner, $objType);
 
 $i = 1;
+
+
 foreach ($searchFields as $search) {
     if ($isInner) {
         $divClass = 'col-md-4 form-group d-inline-block';
     } else {
         $divClass = 'header-form-line';
     }
-
     if ($search->status <= SearchFormModel::STATUS_NOT_REMOVE) {
         $this->renderPartial('//site/_search_field_' . $search->field, array(
             'divClass' => $divClass,
