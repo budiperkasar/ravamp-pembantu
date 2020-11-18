@@ -13,7 +13,7 @@ $searchUrl = isset($this->aData['searchUrl']) ? $this->aData['searchUrl'] : Yii:
 
         $loc = (issetModule('location')) ? "-loc" : "";
         ?>
-        <div class="filtr<?php if ($compact) echo ' collapsed' ?>">
+        <div class="search<?php if ($compact) echo ' collapsed' ?>">
             <div id="search_form" class="inner_form">
                 <?php $this->renderPartial('//site/_search_form', array(
                     'isInner' => 1,

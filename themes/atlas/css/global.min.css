@@ -37,6 +37,10 @@
     font-size: 38px!important;
 }
 
+.font-26 {
+    font-size: 26px !important;
+}
+
 div.logo {
     float: left;
     padding: 8px 0 !important;
@@ -141,4 +145,46 @@ div.logo a {
 
 .index-page-search-form {
     bottom: 20% !important;
+}
+
+.block-search {
+    background-color: #FFF;
+    border: 1px solid #DEDEDE;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.block-search h2 {
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #464E4F;
+    color: #FFF;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 25px;
+}
+
+.block-search i.search {
+    background-color: #2E3536;
+    font-size: 25px;
+    color: #FFF;
+    padding: 8px 12px;
+    top: 0;
+    line-height: 25px;
+}
+
+#search-form {
+    background: none !important;
+}
+.filtr select, .filtr input[type="text"] {
+    width: 100% !important;
+}
+
+.d-inline-block {
+    display: inline-block !important;
+}
+#search_form {
+    color: #0b0b0b !important;
 }
