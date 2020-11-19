@@ -17,7 +17,10 @@
     <div class="clear"></div>
 
 <?php if (isset($page) && $page): ?>
-    <?php if ($page->widget && $page->widget_position == InfoPages::POSITION_BOTTOM): ?>
-        <?php $this->renderPartial('_index_view_widget', array('widget' => $page->widget, 'page' => $page, 'widgetTitles' => $page->widget_titles)); ?>
+    <?php if ($page->widget && $page->widget_position == InfoPages::POSITION_BOTTOM):?>
+        <?php
+        $this->renderPartial('_index_view_navigation_tabs', []);
+        $this->renderPartial('_index_view_widget', array('widget' => $page->widget, 'page' => $page, 'widgetTitles' => $page->widget_titles));
+        ?>
     <?php endif; ?>
 <?php endif; ?>

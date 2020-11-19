@@ -31,6 +31,10 @@ $cs = Yii::app()->clientScript;
     <link rel="stylesheet" type="text/css" href="<?= Yii::app()->theme->baseUrl ?>/css/all.css">
     <link rel="stylesheet" type="text/css" href="<?= Yii::app()->theme->baseUrl ?>/css/global.min.css" />
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <!--[if lt IE 9]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/ie.css">

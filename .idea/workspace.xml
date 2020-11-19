@@ -23,11 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8d724d0-3562-4f3e-bbbe-1c0f7b97c989" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/themes/atlas/views/site/disabled_search_field_ap_type.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/atlas/views/site/_index_view_navigation_tabs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/atlas/views/site/_search_field_location.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/views/site/_search_field_location.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/atlas/views/site/_search_field_obj_type.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/views/site/_search_field_obj_type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/atlas/views/site/_search_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/views/site/_search_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/atlas/css/global.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/css/global.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/atlas/views/layouts/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/views/layouts/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/atlas/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/atlas/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/atlas/views/site/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605427850279</updated>
       <workItem from="1605427851537" duration="63123000" />
-      <workItem from="1605659358572" duration="9991000" />
+      <workItem from="1605659358572" duration="18241000" />
     </task>
     <servers />
   </component>
@@ -89,18 +90,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="418" y="241" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605603575344">
+    <state x="418" y="241" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605752346003">
       <screen x="0" y="23" width="1440" height="819" />
     </state>
-    <state x="418" y="241" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.819@0.23.1440.819" timestamp="1605603575343" />
+    <state x="418" y="241" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.819@0.23.1440.819" timestamp="1605752346003" />
     <state x="360" y="201" key="MultipleFileMergeDialog" timestamp="1605427961606">
       <screen x="0" y="23" width="1440" height="819" />
     </state>
     <state x="360" y="201" key="MultipleFileMergeDialog/0.23.1440.819@0.23.1440.819" timestamp="1605427961606" />
-    <state x="421" y="187" width="598" height="490" key="find.popup" timestamp="1605676870131">
+    <state x="421" y="187" width="598" height="490" key="find.popup" timestamp="1605753096361">
       <screen x="0" y="23" width="1440" height="819" />
     </state>
-    <state x="421" y="187" width="598" height="490" key="find.popup/0.23.1440.819@0.23.1440.819" timestamp="1605676870131" />
+    <state x="421" y="187" width="598" height="490" key="find.popup/0.23.1440.819@0.23.1440.819" timestamp="1605753096361" />
     <state x="421" y="286" key="git4idea.ui.GitUnstashDialog" timestamp="1605427961774">
       <screen x="0" y="23" width="1440" height="819" />
     </state>
