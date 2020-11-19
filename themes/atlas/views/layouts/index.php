@@ -29,7 +29,7 @@
 
     <!-- content -->
     <div class="content<?php echo ($useAdditionalView == Themes::ADDITIONAL_VIEW_SEARCH_ONLY) ? ' index-search-only' : ''; ?>">
-        <div class="main-content-wrapper">
+        <div class="main-content-wrapper homepage">
             <?php
             foreach (Yii::app()->user->getFlashes() as $key => $message) {
                 if ($key == 'error' || $key == 'success' || $key == 'notice') {

@@ -10,7 +10,7 @@
     margin: 6px 0 0 0;
 }
 
-.t_underline {
+.t-underline {
     text-decoration: underline;
 }
 
@@ -26,12 +26,20 @@
   color: 238b5c !important;
 }
 
+.c-green-light {
+    color: #458218;
+}
+
 .c_grey {
     color: #D6DEE0 !important;
 }
 
 .c_white {
     color: #fff !important;
+}
+
+.padding-tb10-rl20{
+    padding: 10px 20px;
 }
 .font-38 {
     font-size: 38px!important;
@@ -185,6 +193,11 @@ div.logo a {
 .d-inline-block {
     display: inline-block !important;
 }
+
 #search_form {
     color: #0b0b0b !important;
+}
+
+.nav-link {
+    margin: 0 1.5px;
 }
