@@ -27,7 +27,6 @@ $cs = Yii::app()->clientScript;
     }
     ?>
 
-    <link rel="stylesheet" type="text/css" href="<?= Yii::app()->theme->baseUrl ?>/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?= Yii::app()->theme->baseUrl ?>/css/all.css">
     <link rel="stylesheet" type="text/css" href="<?= Yii::app()->theme->baseUrl ?>/css/global.min.css" />
 

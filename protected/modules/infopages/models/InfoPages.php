@@ -441,6 +441,142 @@ class InfoPages extends ParentModel
 
     private $_filter;
 
+    public function getCriteriaForNav($data)
+    {
+        $criteria = new CDbCriteria();
+
+        $listExclude = ApartmentObjType::getListExclude('search');
+        if ($listExclude) {
+            $criteria->addNotInCondition('t.obj_type_id', $listExclude);
+        }
+
+        if ($this->widget_data) {
+            $arr = CJSON::decode($this->widget_data);
+
+            if ($this->widget == 'seosummaryinfo') {
+                $this->_filter = (isset($arr['apartmentFilter'])) ? $arr['apartmentFilter'] : array();
+            } else {
+                $this->_filter = $arr;
+            }
+
+            unset($arr);
+
+            if (issetModule('location')) {
+                $this->setForCriteria($criteria, 'country_id', 'loc_country');
+                $this->setForCriteria($criteria, 'region_id', 'loc_region');
+                $this->setForCriteria($criteria, 'city_id', 'loc_city');
+
+                if (isset($this->_filter['country_id']) && $this->_filter['country_id'])
+                    Yii::app()->controller->selectedCountry = $this->_filter['country_id'];
+                if (isset($this->_filter['region_id']) && $this->_filter['region_id'])
+                    Yii::app()->controller->selectedRegion = $this->_filter['region_id'];
+                if (isset($this->_filter['city_id']) && $this->_filter['city_id'])
+                    Yii::app()->controller->selectedCity = $this->_filter['city_id'];
+            } else {
+                $this->setForCriteria($criteria, 'city_id', 'city_id');
+
+                if (isset($this->_filter['city_id']) && $this->_filter['city_id'])
+                    Yii::app()->controller->selectedCity = $this->_filter['city_id'];
+            }
+
+            if (issetModule('metroStations')) {
+                $this->setForCriteria($criteria, 'metro', 'metro');
+
+                if (isset($this->_filter['metro']) && $this->_filter['metro'])
+                    Yii::app()->controller->selectedMetroStations = $this->_filter['metro'];
+            }
+
+            if (isset($this->_filter['type']) && $this->_filter['type']) {
+                if (strpos($this->_filter['type'], '-') !== false) {
+                    $typeArr = explode('-', $this->_filter['type']);
+                    $type = (int)$typeArr[0];
+                    $priceType = (int)$typeArr[1];
+                    if (issetModule('seasonalprices')) {
+                        $criteria->addCondition('( t.id IN(SELECT apartment_id FROM {{seasonal_prices}} WHERE price_type = :price_type ) OR (is_price_poa = 1) )');
+                    } else {
+                        $criteria->addCondition('t.price_type = :price_type');
+                    }
+                    $criteria->params[':price_type'] = $priceType;
+                    $criteria->addCondition('t.type = :apType');
+                    $criteria->params[':apType'] = $type;
+                } else {
+                    $criteria->addCondition('t.type = :apType');
+                    $criteria->params[':apType'] = (int)$this->_filter['type'];
+                }
+            }
+//            return $data['_filter']['obj_type_id'];
+
+            $this->_filter['obj_type_id'] = $data['_filter']['obj_type_id'];
+
+            $this->setForCriteria($criteria, 'obj_type_id', 't.obj_type_id');
+            $this->setForCriteria($criteria, 'parent_id', 't.parent_id');
+
+            $this->setForCriteria($criteria, 'rooms', 't.num_of_rooms');
+
+            $this->setForCriteria($criteria, 'ot', 't.ot');
+
+            $this->setForCriteria($criteria, 'wp', 't.count_img');
+
+            $this->setForCriteria($criteria, 'square_min', 't.square');
+            $this->setForCriteria($criteria, 'square_max', 't.square');
+
+            $this->setForCriteria($criteria, 'floor_min', 't.floor');
+            $this->setForCriteria($criteria, 'floor_max', 't.floor');
+
+            if (isset($this->_filter['type']) && $this->_filter['type'])
+                Yii::app()->controller->apType = $this->_filter['type'];
+            if (isset($this->_filter['obj_type_id']) && $this->_filter['obj_type_id'])
+                Yii::app()->controller->objType = $this->_filter['obj_type_id'];
+            if (isset($this->_filter['rooms']) && $this->_filter['rooms'])
+                Yii::app()->controller->roomsCount = $this->_filter['rooms'];
+            if (isset($this->_filter['ot']) && $this->_filter['ot'])
+                Yii::app()->controller->ot = $this->_filter['ot'];
+            if (isset($this->_filter['wp']) && $this->_filter['wp'])
+                Yii::app()->controller->wp = $this->_filter['wp'];
+
+            if (isset($this->_filter['square_min']) && $this->_filter['square_min'])
+                Yii::app()->controller->squareCountMin = $this->_filter['square_min'];
+            if (isset($this->_filter['square_max']) && $this->_filter['square_max'])
+                Yii::app()->controller->squareCountMax = $this->_filter['square_max'];
+
+            if (isset($this->_filter['floor_min']) && $this->_filter['floor_min'])
+                Yii::app()->controller->floorCountMin = $this->_filter['floor_min'];
+            if (isset($this->_filter['floor_max']) && $this->_filter['floor_max'])
+                Yii::app()->controller->floorCountMax = $this->_filter['floor_max'];
+
+            # new fields
+            $newFieldsAll = InfoPages::getAddedFields();
+            if ($newFieldsAll) {
+                foreach ($newFieldsAll as $field) {
+                    $this->setForCriteria($criteria, $field['field'], 't.' . $field['field'], true, $field);
+
+                    if (isset($this->_filter[$field['field']]) && $this->_filter[$field['field']])
+                        Yii::app()->controller->newFields[$field['field']] = $this->_filter[$field['field']];
+                }
+            }
+        }
+
+//      Для чего это ??? Эта критерия итак проходит потом через apartmentsHelper и HApartment::findAllWithCache, зачем 2 раза?
+//		$limit = param('countListitng'.User::getModeListShow(), 10);
+//		Yii::import('application.modules.apartments.helpers.apartmentsHelper');
+//		$newcriteria = apartmentsHelper::getApartments($limit, 1, 0, $criteria);
+//		$result = HApartment::findAllWithCache($newcriteria['criteria']);
+//
+//		if ($result) {
+//			$result = CHtml::listData($result, 'id', 'id');
+//
+//			if ($result && !empty($this->seasonalPricesIds)) {
+//				$ids = array_unique(CMap::mergeArray($result, $this->seasonalPricesIds));
+//				$criteria = new CDbCriteria;
+//				$criteria->addInCondition('t.id', $ids);
+//			}
+//		}
+
+        $criteria->limit = param('countListitng' . User::getModeListShow(), 10);
+
+        return $criteria;
+    }
+
     public function getCriteriaForAdList()
     {
         $criteria = new CDbCriteria();
