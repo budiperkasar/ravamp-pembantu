@@ -1,5 +1,10 @@
 <?php
 $widgetData = $widgetSummaryData = array('widgetTitles' => $widgetTitles);
+$criteria = $page->getCriteriaForAdList();
+
+
+var_dump($page->getCriteriaForAdList());
+//die();
 
 if ($widget == 'seosummaryinfo') {
     Yii::import('application.modules.seo.components.SeosummaryinfoWidget');
@@ -29,6 +34,9 @@ switch ($widget) {
         $criteria = HGeo::setForIndexCriteria($criteria);
 
         $widgetData = CMap::mergeArray($widgetData, array('criteria' => $criteria));
+
+//        var_dump($criteria);
+//        die();
         break;
 
     case 'seosummarycities':

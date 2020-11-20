@@ -1,5 +1,27 @@
 <?php
+$widgetData = $widgetSummaryData = array('widgetTitles' => $widgetTitles);
+$navTabsCriteria = [
+        '_filter' => [
+                'obj_type_id' => 1
+        ]
+];
 
+$newWorkerCriteria = ['_filter' => ['obj_type_id' => 1]];
+$availableSoonCriteria = ['_filter' => ['obj_type_id' => 2]];
+$availableCriteria = ['_filter' => ['obj_type_id' => 5]];
+$infalPackageCriteria = ['_filter' => ['obj_type_id' => 6]];
+
+//$criteria = $page->getCriteriaForNav($navTabsCriteria);
+
+//$criteria = $page->getCriteriaForAdList();
+
+//$criteria = HGeo::setForIndexCriteria($criteria);
+
+//$widgetData = CMap::mergeArray($widgetData, array('criteria' => $page->getCriteriaForNav($navTabsCriteria)));
+
+
+//var_dump($page->getCriteriaForNav($navTabsCriteria));
+//die();
 ?>
 
 <nav>
@@ -13,16 +35,37 @@
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel">
         <div class="container padding-tb10-rl20">
             <p>Content tab 1</p>
+            <?php
+            $criteria = $page->getCriteriaForNav($newWorkerCriteria);
+            $criteria = HGeo::setForIndexCriteria($criteria);
+
+            $widgetData = CMap::mergeArray($widgetData, array('criteria' => $criteria));
+
+            $this->widget('ApartmentsWidget', $widgetData);
+
+            ?>
         </div>
     </div>
     <div class="tab-pane fade" id="nav-profil" role="tabpanel">
         <div class="container padding-tb10-rl20">
             <p>Content tab 2</p>
+            <?php
+
+            $widgetData = CMap::mergeArray($widgetData, array('criteria' => $page->getCriteriaForNav($availableSoonCriteria)));
+            $this->widget('ApartmentsWidget', $widgetData);
+
+            ?>
         </div>
     </div>
     <div class="tab-pane fade" id="nav-kontak" role="tabpanel">
         <div class="container padding-tb10-rl20">
             <p>Content tab 3</p>
+            <?php
+
+            $widgetData = CMap::mergeArray($widgetData, array('criteria' => $page->getCriteriaForNav($availableCriteria)));
+            $this->widget('ApartmentsWidget', $widgetData);
+
+            ?>
         </div>
     </div>
 </div>
